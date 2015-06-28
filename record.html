@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>七大奇蹟 計分網</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      
+      .starter-template {
+        padding: 40px 15px;
+        text-align: center;
+      }
+      .recordFont{
+        font-size: 1em;
+      }
+      .recordFont2{
+        font-size: 2em;
+      }
+      .container .row{
+        margin: 5px;
+      }
+      #record .row .col-md-3 {
+        font-size: 1.5em;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./">七大奇蹟 計分網</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="./">Home</a></li>
+            <li><a href="#about">關於</a></li>
+            <li><a href="record.html">計分板</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container recordFont">
+    <form id="record">
+      <div class="row">
+        <div class="col-md-3">軍事建築</div>
+        <div class="col-md-9">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>第一時期</td>
+                <td>
+                  <label for="score">你打爆別人幾分？</label>
+                  <input type="text" class="form-control" name="fuck[]" id="score" value="0">
+                </td>
+              </tr>
+              <tr>
+                <td>第二時期</td>
+                <td>
+                  <label for="score">你打爆別人幾分？</label>
+                  <input type="text" name="fuck[]" class="form-control" id="score" value="0">
+                </td>
+              </tr>
+              <tr>
+                <td>第三時期</td>
+                <td>
+                  <label for="score">你打爆別人幾分？</label>
+                  <input type="text" name="fuck[]" class="form-control" id="score" value="0">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">財富持有</div>
+        <div class="col-md-9">
+          <label for="myMoney">你有多少錢錢？ <span id="total_money">0</span>元</label>
+          <br>
+          <input type="button" class="btn btn-primary" value="加＄" onclick="addMoney()">
+          <input type="button" class="btn btn-primary" value="扣＄" onclick="fuckMoney()">
+          <input type="text" id="myMoney" class="form-control">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">世界奇蹟</div>
+        <div class="col-md-9">
+          <label for="world">你的世界分數？</label>
+          <input type="text" id="world" class="form-control" value="0">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">市民建築</div>
+        <div class="col-md-9">
+          <label for="build">你的建築分數？</label>
+          <input type="text" id="build" class="form-control" value="0">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">科技建築</div>
+        <div class="col-md-9">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>歷史</td>
+                <td>
+                  <label for="score">有幾張？</label>
+                  <input type="text" name="tech[]" class="form-control" id="score" value="0">
+                </td>
+              </tr>
+              <tr>
+                <td>科學</td>
+                <td>
+                  <label for="score">有幾張？</label>
+                  <input type="text" name="tech[]" class="form-control" id="score" value="0">
+                </td>
+              </tr>
+              <tr>
+                <td>醫學</td>
+                <td>
+                  <label for="score">有幾張？</label>
+                  <input type="text" name="tech[]" class="form-control" id="score" value="0">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <span id="tech_score_detail"></span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">商業建築</div>
+        <div class="col-md-9">
+          <input type="button" class="btn btn-primary" value="新增一筆" onclick="addCard('yellow_cardlist')">
+          <table id="yellow_cardlist">
+          </table>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">公會建築</div>
+        <div class="col-md-9">
+          <input type="button" class="btn btn-primary" value="新增一筆" onclick="addCard('purple_cardlist')">
+          <table id="purple_cardlist">
+            
+          </table>
+        </div>
+      </div>
+      <hr>
+      <h2><input type="button" class="btn btn-primary" value="結算成績" onclick="total_score()">
+      <input type="button" class="btn btn-primary" value="重新開始" onclick="reset()"></h2>
+      <span id="total_score">
+        
+      </span>
+
+    </form>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    var addCard=function(cardlist){
+      $("#"+cardlist).append("<tr><td>分數種類(1或2分)</td>"
+        +"<td><input type='text' class='form-control' name='"+cardlist+"1[]' value='1'></td><td>&nbsp&nbsp&nbsp</td><td>有幾張</td><td><input type='text' class='form-control' name='"+cardlist+"2[]' value='0'></td></tr>");
+    }
+    var addMoney=function(){
+        var m=parseInt($('#total_money').text());
+        m=m+parseInt($('#myMoney').val());
+        $('#total_money').html(m);
+    };
+    var fuckMoney=function(){
+        var m=parseInt($('#total_money').text());
+        m=m-parseInt($('#myMoney').val());
+        $('#total_money').html(m);
+    };
+    var total_score=function(){
+      $("#total_score").empty();
+      var total_score_record={
+        fuck:0,
+        money:0,
+        world:0,
+        build:0,
+        tech:0,
+        yellow:0,
+        purple:0,
+        total:0,
+        total_compute_all:function(){
+          this.total=this.fuck
+                    +this.money
+                    +this.world
+                    +this.build
+                    +this.tech
+                    +this.yellow
+                    +this.purple
+        }
+      };
+      $('input[name^="fuck"]').each(function() {
+          total_score_record.fuck+=parseInt($(this).val());
+      });
+      total_score_record.money=parseInt(parseInt($('#total_money').text())/3);
+      total_score_record.world=parseInt($('#world').val());
+      total_score_record.build=parseInt($('#build').val());
+      var min_tech=10;
+      $('input[name^="tech"]').each(function() {
+          var score_tech=parseInt($(this).val());
+          total_score_record.tech+=score_tech*score_tech;
+          if(score_tech>0 && score_tech<min_tech){
+            min_tech=score_tech;
+          }else if(score_tech==0){
+            min_tech=0;
+          }
+      });
+      $("#tech_score_detail").append("<p>每種科技平方共得："+total_score_record.tech+"分</p>");
+      $("#tech_score_detail").append("<p>三種各一張為一組，每組額外加7分，得："+min_tech*7+"分</p>");
+      total_score_record.tech+=min_tech*7;
+      $('input[name^="yellow_cardlist2"]').each(function(key,index) {
+          var obj=$("input[name='yellow_cardlist1[]'")[key];
+          total_score_record.yellow+=parseInt($(this).val())*parseInt($(obj).val());
+      });
+      $('input[name^="purple_cardlist2"]').each(function(key,index) {
+          var obj=$("input[name='purple_cardlist1[]'")[key];
+          total_score_record.purple+=parseInt($(this).val())*parseInt($(obj).val());
+      });
+      $("#total_score").append("<p>戰爭成績："+total_score_record.fuck+"分</p>");
+      $("#total_score").append("<p>財富成績："+total_score_record.money+"分</p>");
+      $("#total_score").append("<p>世界成績："+total_score_record.world+"分</p>");
+      $("#total_score").append("<p>建築成績："+total_score_record.build+"分</p>");
+      $("#total_score").append("<p>科技成績："+total_score_record.tech+"分</p>");
+      $("#total_score").append("<p>商業成績："+total_score_record.yellow+"分</p>");
+      $("#total_score").append("<p>公會成績："+total_score_record.purple+"分</p>");
+      total_score_record.total_compute_all();
+      $("#total_score").append("<p><h3>總成績："+total_score_record.total+"分</h3></p>");
+
+    }
+    var reset=function(){
+      $("#record").reset();
+    }
+
+    </script>
+    
+  </body>
+</html>
