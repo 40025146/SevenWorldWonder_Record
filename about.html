@@ -48,7 +48,7 @@
       <div id="about" data-role="page">
         <div class="starter-template">
           <h1>關於作者</h1>
-          <img src="">
+          <img id="pic" src="">
           <h2 id="name"></h2>
         </div>
       </div>
@@ -61,8 +61,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
-    $.get("//graph.facebook.com/732250603508804?fields=id,name,picture",function (data) {
+    $.get("//graph.facebook.com/145634995501895?fields=id,name,picture",function (data) {
       console.log(data);
+      $("#name").text(data.name);
+      $("$pic").attr("src",data.picture.url);
     })
     </script>
     
