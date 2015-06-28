@@ -61,7 +61,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
-    $.get("//graph.facebook.com/v2.3/732250603508804?fields=id,name,picture",function (data) {
+    $.get("//graph.facebook.com/v2.3/me?fields=id,name,picture",function (data) {
       console.log(data);
       $("#name").text(data.name);
       $("#pic").attr("src",data.picture.url);
