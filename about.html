@@ -48,6 +48,8 @@
       <div id="about" data-role="page">
         <div class="starter-template">
           <h1>關於作者</h1>
+          <img src="">
+          <h2 id="name"></h2>
         </div>
       </div>
     </div><!-- /.container -->
@@ -58,7 +60,11 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+    <script type="text/javascript">
+    $.get("GET graph.facebook.com/bgolub?fields=id,name,picture",function (data) {
+      console.log(data);
+    })
+    </script>
     
   </body>
 </html>
