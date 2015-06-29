@@ -257,12 +257,14 @@
       $("#total_score").append("<p>公會成績："+total_score_record.purple+"分</p>");
       total_score_record.total_compute_all();
       $("#total_score").append("<p><h3>總成績："+total_score_record.total+"分</h3></p>");
-
+      $('html, body').animate({
+          scrollTop: $("#total_score").offset().top
+      }, 2000);
     }
     var reset=function(){
       $("#record").reset();
     }
-
+    
     </script>
     
   </body>
