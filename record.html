@@ -236,6 +236,7 @@
             min_tech=0;
           }
       });
+      $("#tech_score_detail").empty();
       $("#tech_score_detail").append("<p>每種科技平方共得："+total_score_record.tech+"分</p>");
       $("#tech_score_detail").append("<p>三種各一張為一組，每組額外加7分，得："+min_tech*7+"分</p>");
       total_score_record.tech+=min_tech*7;
